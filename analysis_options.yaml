@@ -1,0 +1,39 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    todo: ignore # Permite TODOs sem warnings
+    unused_import: warning # Gera aviso para imports não usados
+    dead_code: warning # Código não utilizado gera aviso
+
+  exclude:
+    - "**/*.g.dart" # Exclui arquivos gerados automaticamente
+    - "**/*.freezed.dart"
+    - "**/*.mocks.dart"
+
+linter:
+  rules:
+    # 💡 Boas práticas gerais
+    always_use_package_imports: true # Evita imports relativos
+    prefer_const_constructors: true # Use const sempre que possível
+    prefer_const_literals_to_create_immutables: true # Imutabilidade em listas/mapas
+    prefer_final_fields: true # Evita modificar variáveis dentro da classe
+    avoid_print: true # Proíbe print (use debugPrint)
+    avoid_empty_else: true # Proíbe "else" sem código
+
+    # 💡 Organização e estilo de código
+    sort_constructors_first: true # Construtores primeiro na classe
+    prefer_single_quotes: true # Usa aspas simples por padrão
+    require_trailing_commas: true # Adiciona vírgula no final de listas/objetos (melhor diffs)
+    prefer_interpolation_to_compose_strings: true # Evita concatenar strings com "+"
+
+    # 💡 Segurança
+    always_declare_return_types: true # Sempre defina o tipo de retorno
+    avoid_dynamic_calls: true # Evita chamadas dinâmicas (evita erros de runtime)
+    avoid_slow_async_io: true # Previne operações de I/O lentas (ex: `File.readAsStringSync()`)
+
+    # 💡 Boas práticas no Flutter
+    use_key_in_widget_constructors: true # Sempre use `Key` nos widgets
+    avoid_unnecessary_containers: true # Evita Containers desnecessários
+    prefer_const_declarations: true # Usa `const` ao invés de `final` se o valor for constante
+    use_super_parameters: true # Usa parâmetros nomeados no construtor ao invés de `super()`
