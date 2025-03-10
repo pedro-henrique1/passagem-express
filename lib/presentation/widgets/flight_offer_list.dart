@@ -4,14 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:passagem_express/data/models/ticket_model.dart';
 
-import '../controller/viajantes_controller.dart';
+import 'package:passagem_express/presentation/controller/viajantes_controller.dart';
 
 class FlightOfferList extends StatefulWidget {
-  final String ticketId;
-  final List<TicketModel> flights;
-  final Function(TicketModel) onTicketSelected;
-  final bool Function(TicketModel) isSelected;
-  final bool showOnlySelected;
 
   const FlightOfferList({
     super.key,
@@ -21,6 +16,11 @@ class FlightOfferList extends StatefulWidget {
     required this.isSelected,
     required this.showOnlySelected,
   });
+  final String ticketId;
+  final List<TicketModel> flights;
+  final Function(TicketModel) onTicketSelected;
+  final bool Function(TicketModel) isSelected;
+  final bool showOnlySelected;
 
   @override
   _FlightOfferListState createState() => _FlightOfferListState();
@@ -56,7 +56,6 @@ class _FlightOfferListState extends State<FlightOfferList> {
   Widget build(BuildContext context) {
     int adultos = viajantesController.dadosViajantes['Adultos'] ?? 1;
     int criancas = viajantesController.dadosViajantes['Crianças'] ?? 0;
-    int bebes = viajantesController.dadosViajantes['Bebês'] ?? 0;
 
     final flightsToShow =
         widget.showOnlySelected
@@ -77,7 +76,6 @@ class _FlightOfferListState extends State<FlightOfferList> {
                     (valor.taxaEmbarque * (adultos + criancas)))
                 .toInt();
         bool isSelected = widget.isSelected(flight);
-        print(isSelected);
         return GestureDetector(
           onTap: () {
             widget.onTicketSelected(flight);
@@ -113,24 +111,24 @@ class _FlightOfferListState extends State<FlightOfferList> {
                             style: GoogleFonts.arimo(
                               fontWeight: FontWeight.w300,
                               fontSize: 14,
-                              color: Color.fromRGBO(96, 96, 96, 1),
+                              color: const Color.fromRGBO(96, 96, 96, 1),
                               height: 16 / 12,
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(width: 40),
+                      const SizedBox(width: 40),
                       const Icon(Icons.flight_takeoff),
-                      SizedBox(width: 40),
+                      const SizedBox(width: 40),
                       Expanded(
                         child: Divider(
                           color: Colors.blueAccent.shade400,
                           thickness: 2,
                         ),
                       ),
-                      SizedBox(width: 40),
+                      const SizedBox(width: 40),
                       const Icon(Icons.flight_land),
-                      SizedBox(width: 40),
+                      const SizedBox(width: 40),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -146,7 +144,7 @@ class _FlightOfferListState extends State<FlightOfferList> {
                             style: GoogleFonts.arimo(
                               fontWeight: FontWeight.w300,
                               fontSize: 14,
-                              color: Color.fromRGBO(96, 96, 96, 1),
+                              color: const Color.fromRGBO(96, 96, 96, 1),
                               height: 16 / 12,
                             ),
                           ),
@@ -162,15 +160,15 @@ class _FlightOfferListState extends State<FlightOfferList> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Preço total\n ${formatador.format(total)}",
+                              'Preço total\n ${formatador.format(total)}',
                               style: GoogleFonts.arimo(
                                 fontWeight: FontWeight.w100,
                                 fontSize: 20,
-                                color: Color.fromRGBO(96, 96, 96, 1),
+                                color: const Color.fromRGBO(96, 96, 96, 1),
                                 height: 1.2,
                               ),
                             ),
-                            SizedBox(height: 50, width: 20),
+                            const SizedBox(height: 50, width: 20),
                             Container(
                               width: MediaQuery.of(context).size.width * 0.10,
                               height: 50,
@@ -192,7 +190,7 @@ class _FlightOfferListState extends State<FlightOfferList> {
                                 style: ElevatedButton.styleFrom(
                                   foregroundColor: Colors.blue,
                                   backgroundColor: Colors.white,
-                                  side: BorderSide(
+                                  side: const BorderSide(
                                     color: Colors.blue,
                                     width: 2,
                                   ),
@@ -218,7 +216,7 @@ class _FlightOfferListState extends State<FlightOfferList> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       Text(
-                        "Duração: ${formatarDuracao(flight.duracao)}",
+                        'Duração: ${formatarDuracao(flight.duracao)}',
                         style: GoogleFonts.arimo(
                           fontWeight: FontWeight.w300,
                           fontSize: 16,
@@ -226,7 +224,7 @@ class _FlightOfferListState extends State<FlightOfferList> {
                         ),
                       ),
                       Text(
-                        "Conexões: ${flight.conexoes.length}",
+                        'Conexões: ${flight.conexoes.length}',
                         style: GoogleFonts.arimo(
                           fontWeight: FontWeight.w300,
                           fontSize: 16,
@@ -234,7 +232,7 @@ class _FlightOfferListState extends State<FlightOfferList> {
                         ),
                       ),
                       Text(
-                        "Taxa de embarque: ${formatador.format(valor.taxaEmbarque * (adultos + criancas))}",
+                        'Taxa de embarque: ${formatador.format(valor.taxaEmbarque * (adultos + criancas))}',
                         style: GoogleFonts.arimo(
                           fontWeight: FontWeight.w300,
                           fontSize: 16,
@@ -278,10 +276,10 @@ class _FlightOfferListState extends State<FlightOfferList> {
                   ? Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Text(
-                          "Itinerário Completo: 🗺️",
+                          'Itinerário Completo: 🗺️',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -293,42 +291,42 @@ class _FlightOfferListState extends State<FlightOfferList> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Detalhamento do Preço: 💵",
+                              const Text(
+                                'Detalhamento do Preço: 💵',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
                               ),
                               Text(
-                                "Preço por Passageiro: ${formatador.format(total)}",
+                                'Preço por Passageiro: ${formatador.format(total)}',
                               ),
                               Text(
-                                "Preço por Grupo (2 passageiros): ${formatador.format(valor.adulto * 2)}",
+                                'Preço por Grupo (2 passageiros): ${formatador.format(valor.adulto * 2)}',
                               ),
-                              Text("Total: ${formatador.format(total)}"),
+                              Text('Total: ${formatador.format(total)}'),
                             ],
                           ),
-                          SizedBox(width: 16), // Espaço entre as colunas
+                          const SizedBox(width: 16), // Espaço entre as colunas
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: 16),
-                              Text(
-                                "Bagagens Inclusas: 🧳",
+                              const SizedBox(height: 16),
+                              const Text(
+                                'Bagagens Inclusas: 🧳',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
                               ),
-                              SizedBox(height: 8),
-                              Text("Bagagem de mão:"),
+                              const SizedBox(height: 8),
+                              const Text('Bagagem de mão:'),
                               for (var entry in bagagemMao.entries)
-                                Text("${entry.key}: ${entry.value} kg"),
-                              SizedBox(height: 8),
-                              Text("Bagagem despachada:"),
+                                Text('${entry.key}: ${entry.value} kg'),
+                              const SizedBox(height: 8),
+                              const Text('Bagagem despachada:'),
                               for (var entry in bagagemDespacahda.entries)
-                                Text("${entry.key}: ${entry.value} kg"),
+                                Text('${entry.key}: ${entry.value} kg'),
                             ],
                           ),
                         ],
@@ -348,7 +346,7 @@ class _FlightOfferListState extends State<FlightOfferList> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "${flight.conexoes[i].origem} -> ${flight.conexoes[i].destino}",
+                                      '${flight.conexoes[i].origem} -> ${flight.conexoes[i].destino}',
                                     ),
                                   ],
                                 ),
@@ -356,10 +354,10 @@ class _FlightOfferListState extends State<FlightOfferList> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Nº Voo: ${flight.conexoes[i].numeroVoo}",
+                                      'Nº Voo: ${flight.conexoes[i].numeroVoo}',
                                     ),
                                     Text(
-                                      "Duração: ${flight.conexoes[i].duracao}",
+                                      'Duração: ${flight.conexoes[i].duracao}',
                                     ),
                                   ],
                                 ),
@@ -367,10 +365,10 @@ class _FlightOfferListState extends State<FlightOfferList> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Embarque: ${flight.conexoes[i].embarque} (${flight.conexoes[i].dataEmbarque})",
+                                      'Embarque: ${flight.conexoes[i].embarque} (${flight.conexoes[i].dataEmbarque})',
                                     ),
                                     Text(
-                                      "Desembarque: ${flight.conexoes[i].desembarque} (${flight.conexoes[i].dataDesembarque})",
+                                      'Desembarque: ${flight.conexoes[i].desembarque} (${flight.conexoes[i].dataDesembarque})',
                                     ),
                                   ],
                                 ),
@@ -378,7 +376,7 @@ class _FlightOfferListState extends State<FlightOfferList> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                       ],
                     ],
                   )
@@ -391,18 +389,18 @@ class _FlightOfferListState extends State<FlightOfferList> {
 
 String formatTime(String dateTimeString) {
   try {
-    var dateTime = DateFormat("dd/MM/yyyy HH:mm").parse(dateTimeString);
-    return DateFormat("HH:mm").format(dateTime);
+    var dateTime = DateFormat('dd/MM/yyyy HH:mm').parse(dateTimeString);
+    return DateFormat('HH:mm').format(dateTime);
   } catch (e) {
-    debugPrint("Erro ao formatar a data/hora: $e");
-    return "N/A";
+    debugPrint('Erro ao formatar a data/hora: $e');
+    return 'N/A';
   }
 }
 
 String formatarDuracao(String duracao) {
-  List<String> partes = duracao.split(":");
+  List<String> partes = duracao.split(':');
   int horas = int.parse(partes[0]);
   int minutos = int.parse(partes[1]);
 
-  return "${horas}h ${minutos}m";
+  return '${horas}h ${minutos}m';
 }

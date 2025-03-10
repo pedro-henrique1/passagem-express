@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -103,12 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
     final companhias = companies.selectedAirlines;
 
     final ticketData = {
-      "Companhias": companhias,
-      "DataIda": dateIda,
-      "DataVolta": dateVolta,
-      "Origem": extractIATA(originAirport),
-      "Destino": extractIATA(destinationAirport),
-      "Tipo": tipo,
+      'Companhias': companhias,
+      'DataIda': dateIda,
+      'DataVolta': dateVolta,
+      'Origem': extractIATA(originAirport),
+      'Destino': extractIATA(destinationAirport),
+      'Tipo': tipo,
     };
 
     return ticketData;
@@ -120,12 +118,12 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: Container(
           alignment: Alignment.topCenter,
-          constraints: BoxConstraints(maxWidth: 1200),
-          padding: EdgeInsets.all(20),
+          constraints: const BoxConstraints(maxWidth: 1200),
+          padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: [SizedBox(height: 20), _buildForm()],
+              children: [const SizedBox(height: 20), _buildForm()],
             ),
           ),
         ),
@@ -137,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SingleChildScrollView(
       child: Form(
         child: Container(
-          padding: EdgeInsets.all(40),
+          padding: const EdgeInsets.all(40),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
@@ -146,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 2,
                 blurRadius: 10,
-                offset: Offset(0, 3),
+                offset: const Offset(0, 3),
               ),
             ],
           ),
@@ -154,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               _buildDropdownRow(),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               _buildInputFields(),
             ],
           ),
@@ -194,7 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: Colors.transparent,
               shadowColor: Colors.transparent,
             ),
-            child: Text(
+            child: const Text(
               'Procurar',
               style: TextStyle(
                 fontSize: 16,

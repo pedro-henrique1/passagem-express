@@ -8,10 +8,9 @@ import 'package:passagem_express/data/repositories/airport_repository.dart';
 
 import 'airport_repository.test.mocks.dart';
 
-// Geração de mocks com nome único
 @GenerateMocks([Dio], customMocks: [
   MockSpec<Dio>(as: #MockDioCustom),
-])
+],)
 Future<void> main() async {
   await dotenv.load();
 
@@ -25,7 +24,7 @@ Future<void> main() async {
     });
 
     test('deve retornar uma lista de aeroportos', () async {
-      final query = 'VCP';
+      const query = 'VCP';
       final mockResponse = [
         {
           'Iata': 'VCP',
@@ -43,7 +42,7 @@ Future<void> main() async {
 
       when(mockDio.get(
         '${dotenv.env['BUSCA_MILHAS_URL']}/aeroportos?q=$query',
-      )).thenAnswer(
+      ),).thenAnswer(
             (_) async => Response(
           data: mockResponse,
           statusCode: 200,
@@ -61,7 +60,7 @@ Future<void> main() async {
     });
 
     test('deve retornar uma lista de aeroportos com GRU', () async {
-      final query = 'GRU';
+      const query = 'GRU';
 
       final mockResponse = [
         {
@@ -81,7 +80,7 @@ Future<void> main() async {
 
       when(mockDio.get(
         '${dotenv.env['BUSCA_MILHAS_URL']}/aeroportos?q=$query',
-      )).thenAnswer(
+      ),).thenAnswer(
             (_) async => Response(
           data: mockResponse,
           statusCode: 200,

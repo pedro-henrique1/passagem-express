@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:passagem_express/presentation/controller/airport_controller.dart';
 import 'package:passagem_express/presentation/controller/airport_dropdown_controller.dart';
 
-import 'calendar_widget.dart';
-import 'custom_text_field_with_suggestions.dart';
+import 'package:passagem_express/presentation/widgets/calendar_widget.dart';
+import 'package:passagem_express/presentation/widgets/custom_text_field_with_suggestions.dart';
 
 class AirportDropdown extends StatelessWidget {
   AirportDropdown({super.key});
@@ -25,7 +25,7 @@ class AirportDropdown extends StatelessWidget {
             controller: airportDropdownController.originController,
             focusNode: airportDropdownController.originFocus,
             icon: Icons.flight_takeoff,
-            hint: "Origem",
+            hint: 'Origem',
             onChanged: (query) {
               airportController.searchAirports(query);
             },
@@ -43,7 +43,7 @@ class AirportDropdown extends StatelessWidget {
             controller: airportDropdownController.destinationController,
             focusNode: airportDropdownController.destinationFocus,
             icon: Icons.flight_land,
-            hint: "Destino",
+            hint: 'Destino',
             onChanged: (query) {
               airportController.searchAirports(query);
             },

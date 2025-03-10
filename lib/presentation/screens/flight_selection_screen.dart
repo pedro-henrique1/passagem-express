@@ -34,8 +34,8 @@ class _FlightSelectionScreen extends State<FlightSelectionScreen> {
   }
 
   void _loadFlights() async {
-    final _ticketService = Get.put(AirportService());
-    final tickets = await _ticketService.searchTickets(widget.ticketId);
+    final ticketService = Get.put(AirportService());
+    final tickets = await ticketService.searchTickets(widget.ticketId);
 
     setState(() {
       idaFlights = tickets.where((ticket) => ticket.sentido == 'Ida').toList();
@@ -50,10 +50,10 @@ class _FlightSelectionScreen extends State<FlightSelectionScreen> {
       appBar: AppBar(
         title: const Text.rich(
           TextSpan(
-            text: "Escolha um ",
+            text: 'Escolha um ',
             children: [
               TextSpan(
-                text: "voo de ida",
+                text: 'voo de ida',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
@@ -86,11 +86,11 @@ class _FlightSelectionScreen extends State<FlightSelectionScreen> {
                   selectedReturn == null,
               child: const Text.rich(
                 TextSpan(
-                  text: "Escolha um ",
+                  text: 'Escolha um ',
                   style: TextStyle(fontSize: 20),
                   children: [
                     TextSpan(
-                      text: "voo de volta",
+                      text: 'voo de volta',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
@@ -118,7 +118,7 @@ class _FlightSelectionScreen extends State<FlightSelectionScreen> {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Passagens de ida e volta selecionado",
+                  'Passagens de ida e volta selecionado',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -126,7 +126,7 @@ class _FlightSelectionScreen extends State<FlightSelectionScreen> {
               const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "Passagem de ida selecionada",
+                  'Passagem de ida selecionada',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),

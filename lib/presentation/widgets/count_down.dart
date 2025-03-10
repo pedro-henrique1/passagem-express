@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controller/viajantes_controller.dart';
+import 'package:passagem_express/presentation/controller/viajantes_controller.dart';
 
 class CountDown extends GetxController {
   var adultos = 1.obs;
@@ -134,14 +134,14 @@ class _CountPeopleState extends State<CountPeople> {
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
-                              child: Text('Confirmar'),
+                              child: const Text('Confirmar'),
                             ),
                           ),
                         ],
                       ),
                     );
                   }
-                  return SizedBox();
+                  return const SizedBox();
                 }),
               ),
             ),
@@ -157,7 +157,7 @@ class _CountPeopleState extends State<CountPeople> {
     VoidCallback decrementar,
   ) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -166,11 +166,11 @@ class _CountPeopleState extends State<CountPeople> {
             children: [
               Text(
                 titulo,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               Text(
                 subtitulo,
-                style: TextStyle(fontSize: 12, color: Colors.grey),
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
               ),
             ],
           ),
@@ -178,12 +178,12 @@ class _CountPeopleState extends State<CountPeople> {
             children: [
               IconButton(
                 onPressed: decrementar,
-                icon: Icon(Icons.remove_circle_outline, color: Colors.grey),
+                icon: const Icon(Icons.remove_circle_outline, color: Colors.grey),
               ),
-              Obx(() => Text('${valor.value}', style: TextStyle(fontSize: 16))),
+              Obx(() => Text('${valor.value}', style: const TextStyle(fontSize: 16))),
               IconButton(
                 onPressed: incrementar,
-                icon: Icon(Icons.add_circle_outline, color: Colors.blue),
+                icon: const Icon(Icons.add_circle_outline, color: Colors.blue),
               ),
             ],
           ),
@@ -208,14 +208,14 @@ class _CountPeopleState extends State<CountPeople> {
               }
             },
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Obx(
                     () => Text(
-                      "${controller.totalViajantes} Passageiros",
-                      style: TextStyle(fontSize: 16),
+                      '${controller.totalViajantes} Passageiros',
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ),
                   Obx(

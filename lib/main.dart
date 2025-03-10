@@ -12,7 +12,7 @@ import 'package:passagem_express/services/airport_service.dart';
 
 Future<void> main() async {
   try {
-    await dotenv.load(fileName: ".env"); // Load environment variables
+    await dotenv.load(fileName: '.env'); // Load environment variables
   } catch (e) {
     throw Exception('Error loading .env file: $e'); // Print error if any
   }
@@ -29,7 +29,7 @@ Future<void> main() async {
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      getPages: [GetPage(name: '/', page: () => HomeScreen())],
+      getPages: [GetPage(name: '/', page: () => const HomeScreen())],
     ),
   );
 }

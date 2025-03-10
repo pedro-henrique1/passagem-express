@@ -3,18 +3,6 @@ import 'package:passagem_express/data/models/flight_value_model.dart';
 import 'package:passagem_express/data/models/mileage_details_model.dart';
 
 class TicketModel {
-  final String companhia;
-  final String sentido;
-  final String origem;
-  final String destino;
-  final String embarque;
-  final String desembarque;
-  final String duracao;
-  final String numeroVoo;
-  final int numeroConexoes;
-  final List<FlightValue> valores;
-  final List<MileageDetails> milhas;
-  final List<Connection> conexoes;
 
   TicketModel({
     required this.companhia,
@@ -56,4 +44,16 @@ class TicketModel {
               .toList(),
     );
   }
+  final String companhia;
+  final String sentido;
+  final String origem;
+  final String destino;
+  final String embarque;
+  final String desembarque;
+  final String duracao;
+  final String numeroVoo;
+  final int numeroConexoes;
+  final List<FlightValue> valores;
+  final List<MileageDetails> milhas;
+  final List<Connection> conexoes;
 }

@@ -88,10 +88,9 @@ class CalendarWidget extends StatelessWidget {
         );
       }
     } else {
-      // Quando é apenas "Ida", a data de volta é ajustada para o dia seguinte
       ticketController.selectedDateRange.value = DateTimeRange(
         start: selectDay,
-        end: selectDay.add(Duration(days: 1)), // Ajuste para 1 dia a mais
+        end: selectDay.add(const Duration(days: 1)),
       );
     }
 

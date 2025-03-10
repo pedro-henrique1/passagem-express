@@ -1,13 +1,6 @@
 import 'package:passagem_express/data/models/flight_baggage_model.dart';
 
 class FlightValue {
-  final num adulto;
-  final num crianca;
-  final num bebe;
-  final bool executivo;
-  final double taxaEmbarque;
-  final FlightBaggage limiteBagagem;
-  final String tipoValor;
 
   FlightValue({
     required this.adulto,
@@ -30,4 +23,11 @@ class FlightValue {
       tipoValor: json['TipoValor'],
     );
   }
+  final num adulto;
+  final num crianca;
+  final num bebe;
+  final bool executivo;
+  final double taxaEmbarque;
+  final FlightBaggage limiteBagagem;
+  final String tipoValor;
 }

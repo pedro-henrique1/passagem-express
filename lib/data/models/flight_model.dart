@@ -1,10 +1,4 @@
 class Flight {
-  final String companhia;
-  final String origem;
-  final String destino;
-  final String dataIda;
-  final String dataVolta;
-  final String tipo;
 
   Flight({
     required this.companhia,
@@ -17,14 +11,20 @@ class Flight {
 
   factory Flight.fromJson(Map<String, dynamic> json) {
     return Flight(
-      companhia: json["companhia"],
-      origem: json["origem"],
-      destino: json["destino"],
-      dataIda: json["dataIda"],
-      dataVolta: json["dataVolta"],
-      tipo: json["tipo"],
+      companhia: json['companhia'],
+      origem: json['origem'],
+      destino: json['destino'],
+      dataIda: json['dataIda'],
+      dataVolta: json['dataVolta'],
+      tipo: json['tipo'],
     );
   }
+  final String companhia;
+  final String origem;
+  final String destino;
+  final String dataIda;
+  final String dataVolta;
+  final String tipo;
 
   String? validate() {
     if (companhia.isEmpty) {

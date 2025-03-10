@@ -1,15 +1,4 @@
 class Airport {
-  final String iata;
-  final String name;
-  final String country;
-  final String countryCode;
-  final String region;
-  final String regionCode;
-  final String continent;
-  final String location;
-  final String? subLocation;
-  final String? timeZone;
-  final List<String> airports;
 
   Airport({
     required this.iata,
@@ -43,4 +32,15 @@ class Airport {
               : [],
     );
   }
+  final String iata;
+  final String name;
+  final String country;
+  final String countryCode;
+  final String region;
+  final String regionCode;
+  final String continent;
+  final String location;
+  final String? subLocation;
+  final String? timeZone;
+  final List<String> airports;
 }

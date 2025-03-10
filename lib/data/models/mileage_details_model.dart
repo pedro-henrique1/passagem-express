@@ -1,13 +1,6 @@
 import 'package:passagem_express/data/models/flight_baggage_model.dart';
 
 class MileageDetails {
-  final num adulto;
-  final num crianca;
-  final num bebe;
-  final bool executivo;
-  final double taxaEmbarque;
-  final FlightBaggage limiteBagagem;
-  final String tipoMilhas;
 
   MileageDetails({
     required this.adulto,
@@ -30,4 +23,11 @@ class MileageDetails {
       tipoMilhas: json['TipoMilhas'],
     );
   }
+  final num adulto;
+  final num crianca;
+  final num bebe;
+  final bool executivo;
+  final double taxaEmbarque;
+  final FlightBaggage limiteBagagem;
+  final String tipoMilhas;
 }

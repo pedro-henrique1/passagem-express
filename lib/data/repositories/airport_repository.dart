@@ -46,8 +46,7 @@ class AirportRepository {
     try {
       final response = await _dio.get('$_baseUrl/busca/$id');
 
-      List<dynamic> data = response.data["Voos"];
-      print(data);
+      List<dynamic> data = response.data['Voos'];
       return data.map((json) => TicketModel.fromJson(json)).toList();
     } catch (e) {
       throw Exception('Erro ao buscar voos: $e');

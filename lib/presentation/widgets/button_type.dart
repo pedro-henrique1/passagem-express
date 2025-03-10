@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter/widgets.dart';
-import '../controller/ticket_type_controller.dart';
+import 'package:passagem_express/presentation/controller/ticket_type_controller.dart';
 
 class RadioTypeTicket extends StatelessWidget {
-  final TicketTypeController controller = Get.put(TicketTypeController());
 
   RadioTypeTicket({super.key});
+  final TicketTypeController controller = Get.put(TicketTypeController());
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +47,7 @@ class RadioTypeTicket extends StatelessWidget {
               const SizedBox(width: 5),
               Text(
                 text,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                   color: Colors.black,

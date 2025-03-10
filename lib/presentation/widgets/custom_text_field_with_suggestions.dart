@@ -3,13 +3,6 @@ import 'package:get/get.dart';
 import 'package:passagem_express/presentation/controller/airport_controller.dart';
 
 class CustomTextFieldWithOverlay extends StatefulWidget {
-  final TextEditingController controller;
-  final FocusNode focusNode;
-  final IconData icon;
-  final String hint;
-  final ValueChanged<String> onChanged;
-  final String? Function(String?)?
-  validator; // Adicionado parâmetro de validação
 
   const CustomTextFieldWithOverlay({
     super.key,
@@ -18,8 +11,15 @@ class CustomTextFieldWithOverlay extends StatefulWidget {
     required this.icon,
     required this.hint,
     required this.onChanged,
-    this.validator, // Passando a validação
+    this.validator,
   });
+  final TextEditingController controller;
+  final FocusNode focusNode;
+  final IconData icon;
+  final String hint;
+  final ValueChanged<String> onChanged;
+  final String? Function(String?)?
+  validator;
 
   @override
   _CustomTextFieldWithOverlayState createState() =>
@@ -92,11 +92,11 @@ class _CustomTextFieldWithOverlayState
                           final airport = airportController.airports[index];
                           return ListTile(
                             title: Text(
-                              "${airport.name}, ${airport.iata} - ${airport.country}",
+                              '${airport.name}, ${airport.iata} - ${airport.country}',
                             ),
                             onTap: () {
                               widget.controller.text =
-                                  "${airport.name}, ${airport.iata} - ${airport.country}";
+                                  '${airport.name}, ${airport.iata} - ${airport.country}';
                               airportController.airports.clear();
                               _hideOverlay();
                             },

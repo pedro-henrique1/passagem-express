@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,7 +40,7 @@ class DropdownWidgetCompanies extends StatelessWidget {
                 value: null,
                 hint: Text(
                   displayText,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black54,
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -58,12 +57,12 @@ class DropdownWidgetCompanies extends StatelessWidget {
                       width: 1,
                     ),
                   ),
-                  contentPadding: EdgeInsets.symmetric(
+                  contentPadding: const EdgeInsets.symmetric(
                     vertical: 14,
                     horizontal: 16,
                   ),
                 ),
-                items: [],
+                items: const [],
               ),
             ),
           ],
@@ -80,7 +79,7 @@ class DropdownWidgetCompanies extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Selecione as Companhias"),
+          title: const Text('Selecione as Companhias'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -98,17 +97,17 @@ class DropdownWidgetCompanies extends StatelessWidget {
                     const SizedBox(width: 10),
                     Text(
                       entry,
-                      style: TextStyle(fontSize: 16, color: Colors.black87),
+                      style: const TextStyle(fontSize: 16, color: Colors.black87),
                     ),
                   ],
                 );
-              }).toList(),
+              }),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text('Confirmar'),
+                child: const Text('Confirmar'),
               ),
             ],
           ),
