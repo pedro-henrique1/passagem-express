@@ -1,7 +1,9 @@
 # Desafio Técnico - Sistema de Busca de Passagens Aéreas
 
-Este é um sistema de busca de passagens aéreas que permite aos usuários selecionar aeroportos de origem e destino,
-definir as datas de ida e volta, escolher a companhia aérea e o tipo de passagem. O sistema faz uma solicitação para
+Este é um sistema de busca de passagens aéreas que permite aos usuários selecionar aeroportos de
+origem e destino,
+definir as datas de ida e volta, escolher a companhia aérea e o tipo de passagem. O sistema faz uma
+solicitação para
 criar uma passagem e redireciona o usuário para a tela de seleção de voos.
 
 ## Tecnologias Utilizadas
@@ -18,17 +20,21 @@ criar uma passagem e redireciona o usuário para a tela de seleção de voos.
 - **Seleção de Data**: O usuário pode selecionar a data de ida e volta.
 - **Seleção de Companhias Aéreas**: O usuário pode escolher a(s) companhia(s) aérea(s).
 - **Tipo de Passagem**: O usuário pode selecionar o tipo de passagem (ida e volta ou só ida).
-- **Validação de Formulário**: O sistema valida se todos os campos foram preenchidos corretamente antes de realizar a
+- **Validação de Formulário**: O sistema valida se todos os campos foram preenchidos corretamente
+  antes de realizar a
   solicitação de criação do ticket.
 
 ## Como Rodar o Projeto
 
 ### Pré-requisitos
 
-- **Flutter**: Certifique-se de que o [Flutter](https://flutter.dev/docs/get-started/install) esteja instalado em seu
+- **Flutter**: Certifique-se de que o [Flutter](https://flutter.dev/docs/get-started/install) esteja
+  instalado em seu
   sistema.
-- **Dart**: O Dart é instalado automaticamente com o Flutter, mas verifique se está configurado corretamente.
-- **Api**: Executar está [api](https://github.com/gralmeidan/busca-mock-api) localmente, seguindo as instruções
+- **Dart**: O Dart é instalado automaticamente com o Flutter, mas verifique se está configurado
+  corretamente.
+- **Api**: Executar está [api](https://github.com/gralmeidan/busca-mock-api) localmente, seguindo as
+  instruções
   disponíveis no repositório.
 
 ### Passos para Execução
@@ -47,7 +53,8 @@ criar uma passagem e redireciona o usuário para a tela de seleção de voos.
 3. Configuração do .env
    ```bash
     cp .env.example .env
-   
+   ```
+   ```
    BUSCA_MILHAS_URL=htt://{url onde a api externa vai roda}
    ```
 
