@@ -8,7 +8,8 @@ class CustomTextFieldWithOverlay extends StatefulWidget {
   final IconData icon;
   final String hint;
   final ValueChanged<String> onChanged;
-  final String? Function(String?)? validator; // Adicionado parâmetro de validação
+  final String? Function(String?)?
+  validator; // Adicionado parâmetro de validação
 
   const CustomTextFieldWithOverlay({
     super.key,
@@ -63,52 +64,52 @@ class _CustomTextFieldWithOverlayState
     return OverlayEntry(
       builder:
           (context) => Positioned(
-        width: MediaQuery.of(context).size.width * 0.3,
-        child: CompositedTransformFollower(
-          link: _layerLink,
-          offset: const Offset(0, 60),
-          child: Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(10),
-            child: Obx(() {
-              if (airportController.isLoading.value) {
-                return const Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Center(child: CircularProgressIndicator()),
-                );
-              }
+            width: MediaQuery.of(context).size.width * 0.3,
+            child: CompositedTransformFollower(
+              link: _layerLink,
+              offset: const Offset(0, 60),
+              child: Material(
+                elevation: 5,
+                borderRadius: BorderRadius.circular(10),
+                child: Obx(() {
+                  if (airportController.isLoading.value) {
+                    return const Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Center(child: CircularProgressIndicator()),
+                    );
+                  }
 
-              if (airportController.airports.isNotEmpty) {
-                return Container(
-                  constraints: const BoxConstraints(maxHeight: 200),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: ListView.builder(
-                    itemCount: airportController.airports.length,
-                    itemBuilder: (context, index) {
-                      final airport = airportController.airports[index];
-                      return ListTile(
-                        title: Text(
-                          "${airport.name}, ${airport.iata} - ${airport.country}",
-                        ),
-                        onTap: () {
-                          widget.controller.text =
-                          "${airport.name}, ${airport.iata} - ${airport.country}";
-                          airportController.airports.clear();
-                          _hideOverlay();
+                  if (airportController.airports.isNotEmpty) {
+                    return Container(
+                      constraints: const BoxConstraints(maxHeight: 200),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: ListView.builder(
+                        itemCount: airportController.airports.length,
+                        itemBuilder: (context, index) {
+                          final airport = airportController.airports[index];
+                          return ListTile(
+                            title: Text(
+                              "${airport.name}, ${airport.iata} - ${airport.country}",
+                            ),
+                            onTap: () {
+                              widget.controller.text =
+                                  "${airport.name}, ${airport.iata} - ${airport.country}";
+                              airportController.airports.clear();
+                              _hideOverlay();
+                            },
+                          );
                         },
-                      );
-                    },
-                  ),
-                );
-              }
-              return const SizedBox.shrink();
-            }),
+                      ),
+                    );
+                  }
+                  return const SizedBox.shrink();
+                }),
+              ),
+            ),
           ),
-        ),
-      ),
     );
   }
 

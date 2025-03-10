@@ -11,10 +11,7 @@ class CalendarController extends GetxController {
 
     if (selectedDateRange.value == null ||
         selectedDateRange.value!.start == selectedDateRange.value!.end) {
-      selectedDateRange.value = DateTimeRange(
-        start: day,
-        end: day,
-      );
+      selectedDateRange.value = DateTimeRange(start: day, end: day);
       selectedDay.value = day;
     } else {
       if (day.isBefore(selectedDateRange.value!.start)) {

@@ -40,7 +40,6 @@ class _FlightOfferListState extends State<FlightOfferList> {
     isExpandedList = List.generate(widget.flights.length, (index) => false);
   }
 
-
   @override
   void didUpdateWidget(FlightOfferList oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -52,7 +51,6 @@ class _FlightOfferListState extends State<FlightOfferList> {
       });
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -81,175 +79,184 @@ class _FlightOfferListState extends State<FlightOfferList> {
         bool isSelected = widget.isSelected(flight);
         print(isSelected);
         return GestureDetector(
-          onTap: (){
+          onTap: () {
             widget.onTicketSelected(flight);
           },
           child: Card(
-          elevation: 6,
-          margin: const EdgeInsets.symmetric(vertical: 10.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          color: isSelected ? Colors.blue.shade100 : Colors.white, // Cor de fundo
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Text(
-                          formatTime(flight.embarque),
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        Text(
-                          flight.origem,
-                          style: GoogleFonts.arimo(
-                            fontWeight: FontWeight.w300,
-                            fontSize: 14,
-                            color: Color.fromRGBO(96, 96, 96, 1),
-                            height: 16 / 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(width: 40),
-                    const Icon(Icons.flight_takeoff),
-                    SizedBox(width: 40),
-                    Expanded(
-                      child: Divider(
-                        color: Colors.blueAccent.shade400,
-                        thickness: 2,
-                      ),
-                    ),
-                    SizedBox(width: 40),
-                    const Icon(Icons.flight_land),
-                    SizedBox(width: 40),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          formatTime(flight.desembarque),
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        Text(
-                          flight.destino,
-                          style: GoogleFonts.arimo(
-                            fontWeight: FontWeight.w300,
-                            fontSize: 14,
-                            color: Color.fromRGBO(96, 96, 96, 1),
-                            height: 16 / 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                      width: MediaQuery.of(context).size.width * 0.2,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+            elevation: 6,
+            margin: const EdgeInsets.symmetric(vertical: 10.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            color:
+                isSelected
+                    ? Colors.blue.shade100
+                    : Colors.white, // Cor de fundo
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
                           Text(
-                            "Preço total\n ${formatador.format(total)}",
-                            style: GoogleFonts.arimo(
-                              fontWeight: FontWeight.w100,
+                            formatTime(flight.embarque),
+                            style: const TextStyle(
                               fontSize: 20,
-                              color: Color.fromRGBO(96, 96, 96, 1),
-                              height: 1.2,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
-                          SizedBox(height: 50, width: 20),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.10,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.blue.shade700,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: ElevatedButton(
-                              onPressed: () {
-                                if (index >= 0 && index < isExpandedList.length) {
-                                  setState(() {
-                                    isExpandedList[index] = !isExpandedList[index]; // Alterna o estado
-                                  });
-                                }
-                              },
-
-                              style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.blue,
-                                backgroundColor: Colors.white,
-                                side: BorderSide(color: Colors.blue, width: 2),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                              child: const Text(
-                                'Itinerario',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
+                          Text(
+                            flight.origem,
+                            style: GoogleFonts.arimo(
+                              fontWeight: FontWeight.w300,
+                              fontSize: 14,
+                              color: Color.fromRGBO(96, 96, 96, 1),
+                              height: 16 / 12,
                             ),
                           ),
                         ],
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Text(
-                      "Duração: ${formatarDuracao(flight.duracao)}",
-                      style: GoogleFonts.arimo(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 16,
-                        height: 16 / 12,
+                      SizedBox(width: 40),
+                      const Icon(Icons.flight_takeoff),
+                      SizedBox(width: 40),
+                      Expanded(
+                        child: Divider(
+                          color: Colors.blueAccent.shade400,
+                          thickness: 2,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "Conexões: ${flight.conexoes.length}",
-                      style: GoogleFonts.arimo(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 16,
-                        height: 16 / 12,
+                      SizedBox(width: 40),
+                      const Icon(Icons.flight_land),
+                      SizedBox(width: 40),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            formatTime(flight.desembarque),
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          Text(
+                            flight.destino,
+                            style: GoogleFonts.arimo(
+                              fontWeight: FontWeight.w300,
+                              fontSize: 14,
+                              color: Color.fromRGBO(96, 96, 96, 1),
+                              height: 16 / 12,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    Text(
-                      "Taxa de embarque: ${formatador.format(valor.taxaEmbarque * (adultos + criancas))}",
-                      style: GoogleFonts.arimo(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 16,
-                        height: 16 / 12,
+                      SizedBox(
+                        height: 10,
+                        width: MediaQuery.of(context).size.width * 0.2,
                       ),
-                    ),
-                  ],
-                ),
-                _cardItinerario(
-                  index,
-                  flight,
-                  valor,
-                  total,
-                  adultos,
-                  bagagemMao,
-                  bagagemDespacahda,
-                ),
-              ],
+                      Container(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Preço total\n ${formatador.format(total)}",
+                              style: GoogleFonts.arimo(
+                                fontWeight: FontWeight.w100,
+                                fontSize: 20,
+                                color: Color.fromRGBO(96, 96, 96, 1),
+                                height: 1.2,
+                              ),
+                            ),
+                            SizedBox(height: 50, width: 20),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.10,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: Colors.blue.shade700,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  if (index >= 0 &&
+                                      index < isExpandedList.length) {
+                                    setState(() {
+                                      isExpandedList[index] =
+                                          !isExpandedList[index]; // Alterna o estado
+                                    });
+                                  }
+                                },
+
+                                style: ElevatedButton.styleFrom(
+                                  foregroundColor: Colors.blue,
+                                  backgroundColor: Colors.white,
+                                  side: BorderSide(
+                                    color: Colors.blue,
+                                    width: 2,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                                child: const Text(
+                                  'Itinerario',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Text(
+                        "Duração: ${formatarDuracao(flight.duracao)}",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 16,
+                          height: 16 / 12,
+                        ),
+                      ),
+                      Text(
+                        "Conexões: ${flight.conexoes.length}",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 16,
+                          height: 16 / 12,
+                        ),
+                      ),
+                      Text(
+                        "Taxa de embarque: ${formatador.format(valor.taxaEmbarque * (adultos + criancas))}",
+                        style: GoogleFonts.arimo(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 16,
+                          height: 16 / 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  _cardItinerario(
+                    index,
+                    flight,
+                    valor,
+                    total,
+                    adultos,
+                    bagagemMao,
+                    bagagemDespacahda,
+                  ),
+                ],
+              ),
             ),
           ),
-        ));
+        );
       },
     );
   }

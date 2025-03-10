@@ -5,7 +5,6 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:passagem_express/presentation/controller/ticket_type_controller.dart';
 
 class CalendarWidget extends StatelessWidget {
-
   CalendarWidget({
     super.key,
     required this.onDateRangeSelected,
@@ -73,7 +72,8 @@ class CalendarWidget extends StatelessWidget {
     calendarController.selectedDay.value = selectDay;
 
     // Lógica para ida e volta
-    if (ticketController.selectedTicketType.value == SingingCharacter.IdaVolta) {
+    if (ticketController.selectedTicketType.value ==
+        SingingCharacter.IdaVolta) {
       final currentRange = ticketController.selectedDateRange.value;
 
       if (currentRange == null || selectDay.isBefore(currentRange.start)) {

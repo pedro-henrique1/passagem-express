@@ -43,19 +43,17 @@ class TicketModel {
       numeroVoo: json['NumeroVoo'],
       numeroConexoes: json['NumeroConexoes'],
       valores:
-      (json['Valor'] as List<dynamic>)
-          .map((item) => FlightValue.fromJson(item))
-          .toList(),
+          (json['Valor'] as List<dynamic>)
+              .map((item) => FlightValue.fromJson(item))
+              .toList(),
       milhas:
-      (json['Milhas'] as List<dynamic>)
-          .map((item) => MileageDetails.fromJson(item))
-          .toList(),
+          (json['Milhas'] as List<dynamic>)
+              .map((item) => MileageDetails.fromJson(item))
+              .toList(),
       conexoes:
-      (json['Conexoes'] as List<dynamic>)
-          .map((item) => Connection.fromJson(item))
-          .toList(),
+          (json['Conexoes'] as List<dynamic>)
+              .map((item) => Connection.fromJson(item))
+              .toList(),
     );
   }
-
-
 }

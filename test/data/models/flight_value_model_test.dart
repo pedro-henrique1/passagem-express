@@ -1,4 +1,3 @@
-// /test/core/models/valor_test.dart
 import 'package:flutter_test/flutter_test.dart';
 import 'package:passagem_express/data/models/flight_baggage_model.dart';
 import 'package:passagem_express/data/models/flight_value_model.dart';
@@ -13,15 +12,10 @@ void main() {
         'Executivo': false,
         'TaxaEmbarque': 50.23,
         'LimiteBagagem': {
-          'BagagemMao': {
-            '10kg': 1
-          },
-          'BagagemDespachada': {
-            '23kg': 1,
-            '32kg': 1
-          }
+          'BagagemMao': {'10kg': 1},
+          'BagagemDespachada': {'23kg': 1, '32kg': 1},
         },
-        'TipoValor': 'Econômico'
+        'TipoValor': 'Econômico',
       };
 
       final valor = FlightValue.fromJson(json);
@@ -44,15 +38,10 @@ void main() {
         'Executivo': false,
         'TaxaEmbarque': 50.23,
         'LimiteBagagem': {
-          'BagagemMao': {
-            '10kg': 1
-          },
-          'BagagemDespachada': {
-            '23kg': 1,
-            '32kg': 1
-          }
+          'BagagemMao': {'10kg': 1},
+          'BagagemDespachada': {'23kg': 1, '32kg': 1},
         },
-        'TipoValor': 'Econômico'
+        'TipoValor': 'Econômico',
       };
 
       final valor = FlightValue.fromJson(json);
@@ -74,20 +63,14 @@ void main() {
         'Executivo': false,
         'TaxaEmbarque': 50.23,
         'LimiteBagagem': {
-          'BagagemMao': {
-            '10kg': 1
-          },
-          'BagagemDespachada': {
-            '23kg': 1,
-            '32kg': 1
-          }
+          'BagagemMao': {'10kg': 1},
+          'BagagemDespachada': {'23kg': 1, '32kg': 1},
         },
-        'TipoValor': 'Econômico'
+        'TipoValor': 'Econômico',
       };
 
       final valor = FlightValue.fromJson(json);
 
-      // Verificação de valores específicos
       expect(valor.adulto, 0);
       expect(valor.crianca, 0);
       expect(valor.bebe, 0);

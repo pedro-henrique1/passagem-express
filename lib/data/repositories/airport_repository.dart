@@ -6,7 +6,6 @@ import 'package:passagem_express/data/models/airport_model.dart';
 import 'package:passagem_express/data/models/ticket_model.dart';
 
 class AirportRepository {
-
   AirportRepository({Dio? dio}) : _dio = dio ?? Dio();
   final Dio _dio;
 
@@ -20,7 +19,9 @@ class AirportRepository {
         List<dynamic> data = response.data;
         return data.map((json) => Airport.fromJson(json)).toList();
       } else {
-        throw Exception('Erro ao buscar aeroportos: Status code ${response.statusCode}');
+        throw Exception(
+          'Erro ao buscar aeroportos: Status code ${response.statusCode}',
+        );
       }
     } catch (e) {
       throw Exception('Erro ao buscar aeroportos: $e');
@@ -40,6 +41,7 @@ class AirportRepository {
       throw Exception('Erro ao criar ticket: $e');
     }
   }
+
   Future<List<TicketModel>> searchFlights(String id) async {
     try {
       final response = await _dio.get('$_baseUrl/busca/$id');
@@ -51,5 +53,4 @@ class AirportRepository {
       throw Exception('Erro ao buscar voos: $e');
     }
   }
-
 }

@@ -29,11 +29,7 @@ Future<void> main() async {
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      getPages: [
-        GetPage(name: '/', page: () => HomeScreen()),
-      ],
+      getPages: [GetPage(name: '/', page: () => HomeScreen())],
     ),
   );
 }
-
-

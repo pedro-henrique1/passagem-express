@@ -1,9 +1,9 @@
 import 'package:passagem_express/data/models/flight_baggage_model.dart';
 
 class MileageDetails {
-  final double adulto;
-  final double crianca;
-  final double bebe;
+  final num adulto;
+  final num crianca;
+  final num bebe;
   final bool executivo;
   final double taxaEmbarque;
   final FlightBaggage limiteBagagem;

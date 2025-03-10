@@ -1,4 +1,3 @@
-// /test/core/models/flight_test.dart
 import 'package:flutter_test/flutter_test.dart';
 import 'package:passagem_express/data/models/flight_model.dart';
 
@@ -11,7 +10,7 @@ void main() {
         'destino': 'ZZT',
         'dataIda': '3/12/2022',
         'dataVolta': '3/12/2022',
-        'tipo': 'Ida e Volta'
+        'tipo': 'Ida e Volta',
       };
 
       final flight = Flight.fromJson(json);
@@ -31,7 +30,7 @@ void main() {
         'destino': 'ZZT',
         'dataIda': '3/12/2022',
         'dataVolta': '3/12/2022',
-        'tipo': 'Ida e Volta'
+        'tipo': 'Ida e Volta',
       };
 
       final flight = Flight.fromJson(json);
@@ -46,7 +45,7 @@ void main() {
         'destino': 'ZZT',
         'dataIda': '3/12/2022',
         'dataVolta': '3/12/2022',
-        'tipo': 'Ida e Volta'
+        'tipo': 'Ida e Volta',
       };
 
       final flight = Flight.fromJson(json);
@@ -61,7 +60,7 @@ void main() {
         'destino': 'ZZT',
         'dataIda': '3/12/2022',
         'dataVolta': '3/12/2022',
-        'tipo': 'Ida e Volta'
+        'tipo': 'Ida e Volta',
       };
 
       final flight = Flight.fromJson(json);
@@ -76,7 +75,7 @@ void main() {
         'destino': '',
         'dataIda': '3/12/2022',
         'dataVolta': '3/12/2022',
-        'tipo': 'Ida e Volta'
+        'tipo': 'Ida e Volta',
       };
 
       final flight = Flight.fromJson(json);
@@ -91,7 +90,7 @@ void main() {
         'destino': 'ZZT',
         'dataIda': '3/12/2022',
         'dataVolta': '3/12/2022',
-        'tipo': ''
+        'tipo': '',
       };
 
       final flight = Flight.fromJson(json);
@@ -104,9 +103,9 @@ void main() {
         'companhia': 'Latam',
         'origem': 'GRU',
         'destino': 'ZZT',
-        'dataIda': '',  // Em branco
+        'dataIda': '', // Em branco
         'dataVolta': '3/12/2022',
-        'tipo': 'Ida e Volta'
+        'tipo': 'Ida e Volta',
       };
 
       final flight = Flight.fromJson(json);
@@ -114,19 +113,25 @@ void main() {
       expect(flight.validate(), equals('Data de ida não pode ser vazia'));
     });
 
-    test('should return error message if dataVolta is null for "Ida e Volta" type', () {
-      final Map<String, dynamic> json = {
-        'companhia': 'Latam',
-        'origem': 'GRU',
-        'destino': 'ZZT',
-        'dataIda': '3/12/2022',
-        'dataVolta': '',  // Em branco
-        'tipo': 'Ida e Volta'
-      };
+    test(
+      'should return error message if dataVolta is null for "Ida e Volta" type',
+      () {
+        final Map<String, dynamic> json = {
+          'companhia': 'Latam',
+          'origem': 'GRU',
+          'destino': 'ZZT',
+          'dataIda': '3/12/2022',
+          'dataVolta': '', // Em branco
+          'tipo': 'Ida e Volta',
+        };
 
-      final flight = Flight.fromJson(json);
+        final flight = Flight.fromJson(json);
 
-      expect(flight.validate(), equals('Data de volta não pode ser vazia para tipo Ida e Volta'));
-    });
+        expect(
+          flight.validate(),
+          equals('Data de volta não pode ser vazia para tipo Ida e Volta'),
+        );
+      },
+    );
   });
 }

@@ -1,4 +1,3 @@
-// /test/core/models/airport_test.dart
 import 'package:flutter_test/flutter_test.dart';
 import 'package:passagem_express/data/models/airport_model.dart';
 

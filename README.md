@@ -62,3 +62,8 @@ criar uma passagem e redireciona o usuário para a tela de seleção de voos.
    ```bash
     make run-web
    ```
+
+5. Mais comando:
+    ```bash
+    make help     
+    ```

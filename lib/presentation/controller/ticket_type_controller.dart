@@ -18,7 +18,10 @@ class TicketTypeController extends GetxController {
     if (selectedTicketType.value == SingingCharacter.IdaVolta) {
       selectedDateRange.value = range;
     } else {
-      selectedDateRange.value = DateTimeRange(start: range.start, end: range.start);
+      selectedDateRange.value = DateTimeRange(
+        start: range.start,
+        end: range.start,
+      );
     }
   }
 }

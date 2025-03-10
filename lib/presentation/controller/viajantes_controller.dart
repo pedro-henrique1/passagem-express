@@ -28,5 +28,4 @@ class ViajantesController extends GetxController {
       'Bebês': bebes,
     });
   }
-
 }

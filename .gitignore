@@ -4,6 +4,7 @@
 *.pyc
 *.swp
 .env
+/test/data/repositories/airport_repository.test.mocks.dart
 .DS_Store
 .atom/
 .build/

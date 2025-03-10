@@ -13,22 +13,18 @@ void main() {
             'Executivo': false,
             'TaxaEmbarque': 50.23,
             'LimiteBagagem': {
-              'BagagemMao': {
-                '10kg': 1
-              },
-              'BagagemDespachada': {
-                '23kg': 1,
-                '32kg': 1
-              }
+              'BagagemMao': {'10kg': 1},
+              'BagagemDespachada': {'23kg': 1, '32kg': 1},
             },
-            'TipoMilhas': 'Econômico'
-          }
-        ]
+            'TipoMilhas': 'Econômico',
+          },
+        ],
       };
 
-      final milhasList = (json['Milhas'] as List)
-          .map((item) => MileageDetails.fromJson(item))
-          .toList();
+      final milhasList =
+          (json['Milhas'] as List)
+              .map((item) => MileageDetails.fromJson(item))
+              .toList();
 
       final mileageDetails = milhasList[0];
 

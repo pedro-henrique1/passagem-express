@@ -6,7 +6,6 @@ import 'package:passagem_express/presentation/widgets/flight_offer_list.dart';
 import 'package:passagem_express/services/airport_service.dart';
 
 class FlightSelectionScreen extends StatefulWidget {
-
   const FlightSelectionScreen({super.key, required this.ticketId});
   final String ticketId;
 
@@ -36,9 +35,7 @@ class _FlightSelectionScreen extends State<FlightSelectionScreen> {
 
   void _loadFlights() async {
     final _ticketService = Get.put(AirportService());
-    final tickets = await _ticketService.searchTickets(
-      widget.ticketId,
-    );
+    final tickets = await _ticketService.searchTickets(widget.ticketId);
 
     setState(() {
       idaFlights = tickets.where((ticket) => ticket.sentido == 'Ida').toList();
@@ -49,7 +46,6 @@ class _FlightSelectionScreen extends State<FlightSelectionScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: const Text.rich(
@@ -82,10 +78,12 @@ class _FlightSelectionScreen extends State<FlightSelectionScreen> {
                 isSelected: (flight) => selectedDeparture == flight,
                 showOnlySelected: selectedDeparture != null,
               ),
-
             ),
             Visibility(
-              visible: selectedDeparture != null && voltaFlights.isNotEmpty && selectedReturn == null,
+              visible:
+                  selectedDeparture != null &&
+                  voltaFlights.isNotEmpty &&
+                  selectedReturn == null,
               child: const Text.rich(
                 TextSpan(
                   text: "Escolha um ",
@@ -101,7 +99,7 @@ class _FlightSelectionScreen extends State<FlightSelectionScreen> {
             ),
 
             if (selectedDeparture != null && voltaFlights.isNotEmpty)
-            // Text("Voo de ida selecionado"),
+              // Text("Voo de ida selecionado"),
               Expanded(
                 child: FlightOfferList(
                   ticketId: widget.ticketId,

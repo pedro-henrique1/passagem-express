@@ -24,16 +24,11 @@ void main() {
                 'Executivo': false,
                 'TaxaEmbarque': 50.23,
                 'LimiteBagagem': {
-                  'BagagemMao': {
-                    '10kg': 1
-                  },
-                  'BagagemDespachada': {
-                    '23kg': 1,
-                    '32kg': 1
-                  }
+                  'BagagemMao': {'10kg': 1},
+                  'BagagemDespachada': {'23kg': 1, '32kg': 1},
                 },
-                'TipoValor': 'Econômico'
-              }
+                'TipoValor': 'Econômico',
+              },
             ],
             'Milhas': [
               {
@@ -43,16 +38,11 @@ void main() {
                 'Executivo': false,
                 'TaxaEmbarque': 50.23,
                 'LimiteBagagem': {
-                  'BagagemMao': {
-                    '10kg': 1
-                  },
-                  'BagagemDespachada': {
-                    '23kg': 1,
-                    '32kg': 1
-                  }
+                  'BagagemMao': {'10kg': 1},
+                  'BagagemDespachada': {'23kg': 1, '32kg': 1},
                 },
-                'TipoMilhas': 'Econômico'
-              }
+                'TipoMilhas': 'Econômico',
+              },
             ],
             'Conexoes': [
               {
@@ -65,16 +55,17 @@ void main() {
                 'Desembarque': '04:50',
                 'Origem': 'GRU',
                 'Destino': 'ZZT',
-                'Duracao': '02:55'
-              }
-            ]
-          }
-        ]
+                'Duracao': '02:55',
+              },
+            ],
+          },
+        ],
       };
 
-      final voosList = (json['Voos'] as List)
-          .map((item) => TicketModel.fromJson(item))
-          .toList();
+      final voosList =
+          (json['Voos'] as List)
+              .map((item) => TicketModel.fromJson(item))
+              .toList();
 
       final ticket = voosList[0];
 

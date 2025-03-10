@@ -24,9 +24,10 @@ class DropdownWidgetCompanies extends StatelessWidget {
           displayText = 'Selecione as companhias';
         } else {
           var selectedList = controller.selectedAirlines.toList();
-          displayText = selectedList.length <= 3
-              ? selectedList.join(', ')
-              : '${selectedList.take(3).join(', ')} e mais';
+          displayText =
+              selectedList.length <= 3
+                  ? selectedList.join(', ')
+                  : '${selectedList.take(3).join(', ')} e mais';
         }
 
         return Column(
@@ -40,7 +41,11 @@ class DropdownWidgetCompanies extends StatelessWidget {
                 value: null,
                 hint: Text(
                   displayText,
-                  style: TextStyle(color: Colors.black54, fontSize: 16, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    color: Colors.black54,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 onChanged: (value) {},
                 decoration: InputDecoration(
@@ -48,9 +53,15 @@ class DropdownWidgetCompanies extends StatelessWidget {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.blue.shade200, width: 1),
+                    borderSide: BorderSide(
+                      color: Colors.blue.shade200,
+                      width: 1,
+                    ),
                   ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 14,
+                    horizontal: 16,
+                  ),
                 ),
                 items: [],
               ),
@@ -61,7 +72,10 @@ class DropdownWidgetCompanies extends StatelessWidget {
     );
   }
 
-  void _showSelectionDialog(BuildContext context, DropdownController controller) {
+  void _showSelectionDialog(
+    BuildContext context,
+    DropdownController controller,
+  ) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -74,7 +88,7 @@ class DropdownWidgetCompanies extends StatelessWidget {
                 return Row(
                   children: [
                     Obx(
-                          () => Checkbox(
+                      () => Checkbox(
                         value: controller.selectedAirlines.contains(entry),
                         onChanged: (bool? selected) {
                           controller.toggleSelection(entry, selected!);
@@ -92,8 +106,7 @@ class DropdownWidgetCompanies extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); 
-
+                  Navigator.of(context).pop();
                 },
                 child: Text('Confirmar'),
               ),
@@ -117,5 +130,4 @@ class DropdownController extends GetxController {
       selectedAirlines.remove(airline);
     }
   }
-
 }
