@@ -47,6 +47,8 @@ criar uma passagem e redireciona o usuário para a tela de seleção de voos.
 3. Configuração do .env
    ```bash
     cp .env.example .env
+   
+   BUSCA_MILHAS_URL=htt://{url onde a api externa vai roda}
    ```
 
 4. Executar o programa:
