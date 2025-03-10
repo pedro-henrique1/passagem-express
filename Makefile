@@ -29,6 +29,10 @@ build-web:
 run-web:
 	@$(FLUTTER) run -d chrome
 
+# 📌 Atalho para rodar os testes
+run-test:
+	@$(FLUTTER) test
+
 # 📌 Mostra as opções disponíveis
 help:
 	@echo "Comandos disponíveis:"
@@ -38,3 +42,4 @@ help:
 	@echo "  make clean       - Limpa o cache do Flutter"
 	@echo "  make build-web   - Compila o app Flutter Web"
 	@echo "  make run-web     - Roda o app no Chrome"
+	@echo "  make run-test    - Roda os testes"
